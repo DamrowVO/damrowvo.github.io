@@ -648,30 +648,36 @@
     <!-- About Section End -->
 
     <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/jquery.nicescroll.min.js"></script>
-    <script src="js/jquery.barfiller.js"></script>
-    <script src="js/jquery.countdown.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/jquery.jplayer.min.js"></script>
+<script src="js/jplayerInit.js"></script>
 
-    <script src="player.js"></script>
+<!-- third-party UI scripts AFTER the player is initialized -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/jquery.nicescroll.min.js"></script>
+<script src="js/jquery.barfiller.js"></script>
+<script src="js/jquery.countdown.min.js"></script>
+<script src="js/jquery.slicknav.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/main.js"></script>
+<script src="player.js"></script>
 
-    <!-- Music Plugin -->
-    <script src="js/jquery.jplayer.min.js"></script>
-    <script src="js/jplayerInit.js"></script>
     
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('.video-popup').magnificPopup({
-                type: 'iframe'
-            });
-            $('.audioplayer').load('audioplayer.html');
-        });
-        </script>
+<script type="text/javascript">
+  $(function () {
+    // keep the video popup behavior
+    $('.video-popup').magnificPopup({ type: 'iframe' });
+
+    // load the audio player HTML, then initialize jPlayers
+    $('.audioplayer').load('audioplayer.html?v=1', function () {
+      if (typeof window.initJPlayers === 'function') {
+        window.initJPlayers(); // init AFTER the HTML is loaded
+      }
+    });
+  });
+</script>
+
 </body>
 
 </html>
