@@ -662,6 +662,21 @@
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/main.js"></script>
 <script src="player.js"></script>
+<script type="text/javascript">
+  $(function () {
+    // keep your video popup
+    $('.video-popup').magnificPopup({ type: 'iframe' });
+
+    // load the audio player HTML, then initialize jPlayers
+    $('.audioplayer').load('audioplayer.html?v=1', function () {
+      if (typeof window.initJPlayers === 'function') {
+        window.initJPlayers(); // init AFTER the HTML arrives
+      } else {
+        console.error('initJPlayers() not found');
+      }
+    });
+  });
+</script>
 
     
 <script type="text/javascript">
