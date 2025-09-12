@@ -1,0 +1,70 @@
+{
+    "Radio Imaging": {
+      "Country": [
+        { "title": "Country Demo 1", "url": "audio/country_demo1.mp3" },
+        { "title": "Country Demo 2", "url": "audio/country_demo2.mp3" }
+      ],
+      "Classic Rock": [
+        { "title": "Rock Demo 1", "url": "audio/rock_demo1.mp3" }
+      ],
+      "Top 40": [
+        { "title": "Top 40 Demo 1", "url": "audio/top40_demo1.mp3" }
+      ],
+      "Christian Contemporary": [
+        { "title": "Christian Demo 1", "url": "audio/christian_demo1.mp3" }
+      ]
+    },
+    "Commercial": {
+      "National Spots": [
+        { "title": "National Spot 1", "url": "audio/national1.mp3" }
+      ],
+      "Regional Spots": [
+        { "title": "Regional Spot 1", "url": "audio/regional1.mp3" }
+      ],
+      "Local Spots": [
+        { "title": "Local Spot 1", "url": "audio/local1.mp3" }
+      ],
+      "Web / Social": [
+        { "title": "Web Demo 1", "url": "audio/web1.mp3" }
+      ]
+    },
+    "Corporate / Industrial": {
+      "Corporate Narration": [
+        { "title": "Corporate Narration 1", "url": "audio/corporate1.mp3" }
+      ],
+      "Medical Narration": [
+        { "title": "Medical Narration 1", "url": "audio/medical1.mp3" }
+      ],
+      "Explainer Video Narration": [
+        { "title": "Explainer Video 1", "url": "audio/explainer1.mp3" }
+      ],
+      "E-Learning Content": [
+        { "title": "E-Learning 1", "url": "audio/elearning1.mp3" }
+      ]
+    },
+    "Promo / Trailer": {
+      "Local TV Promo": [
+        { "title": "Local TV Promo 1", "url": "audio/localtv1.mp3" }
+      ],
+      "Streaming / Network Promo": [
+        { "title": "Streaming Promo 1", "url": "audio/streaming1.mp3" }
+      ],
+      "Movie Trailer": [
+        { "title": "Movie Trailer 1", "url": "audio/trailer1.mp3" }
+      ]
+    },
+    "Video Games": {
+      "Game Characters": [
+        { "title": "Game Demo 1", "url": "audio/game1.mp3" }
+      ]
+    },
+    "Cannabis Business": {
+      "Internal Marketing": [
+        { "title": "Cannabis Internal 1", "url": "audio/cannabis_internal1.mp3" }
+      ],
+      "External Marketing": [
+        { "title": "Cannabis External 1", "url": "audio/cannabis_external1.mp3" }
+      ]
+    }
+  }
+  
