@@ -267,11 +267,11 @@ function simp_initTime() {
     if (simp_isNext) { //auto load next audio
       var elem;
       simp_a_index++;
-      if (simp_a_index == simp_a_url.length) { //repeat all audio
+      if (simp_a_index == simp_playable.length) { //repeat all audio
         simp_a_index = 0;
-        elem = simp_a_url[0];
+        elem = simp_playable[0];
       } else {
-        elem = simp_a_url[simp_a_index];  
+        elem = simp_playable[simp_a_index];  
       }
       simp_changeAudio(elem);
       simp_setAlbum(simp_a_index);
@@ -337,7 +337,7 @@ function simp_changeAudioFromSpan(spanEl) {
   simp_controls.querySelector('.end-time').textContent = '00:00';
 
   // clear old highlights
-  simp_a_url.forEach(el => el.parentNode.classList.remove('simp-active'));
+  simp_playable.forEach(el => el.parentNode.classList.remove('simp-active'));
   // mark active
   spanEl.parentNode.classList.add('simp-active');
 
@@ -374,7 +374,7 @@ function simp_startScript() {
     simp_playlist.classList.toggle('simp-hide');
   }
  
-  if (simp_a_url.length <= 1) {
+  if (simp_playable.length <= 1) {
     simp_controls.querySelector('.simp-prev').style.display = 'none';
     simp_controls.querySelector('.simp-next').style.display = 'none';
     simp_others.querySelector('.simp-plext').style.display = 'none';
