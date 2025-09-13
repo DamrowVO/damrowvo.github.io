@@ -328,7 +328,25 @@ function simp_setAlbumFromSpan(spanEl) {
   simp_artist.textContent = spanEl.dataset.desc || '';
 }
 
-function simp_changeAudioFromSpan(spanEl) {
+function simp_loadAudio(spanEl) {
+  simp_progress.parentNode.classList.add('simp-loading');
+  simp_controls.querySelector('.simp-plause').disabled = true;
+
+  // set the audio source
+  simp_audio.querySelector('source').src = spanEl.dataset.src;
+  simp_audio.load();
+
+  // restore volume
+  simp_audio.volume = parseFloat(simp_v_num / 100);
+
+  simp_audio.addEventListener('canplaythrough', simp_initAudio);
+
+  simp_audio.addEventListener('error', function() {
+    console.error("Audio failed to load: " + spanEl.dataset.src);
+  });
+}
+
+	  function simp_changeAudioFromSpan(spanEl) {
   simp_isLoaded = false;
   simp_progress.parentNode.classList.add('simp-load');
   simp_progress.disabled = true;
