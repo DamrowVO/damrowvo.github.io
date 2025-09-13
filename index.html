@@ -663,13 +663,46 @@
 
 	<!-- single inline block (no jPlayer, no initJPlayers) -->
 <script type="text/javascript">
+  // show any JS errors on page (not just console)
+  window.onerror = function (msg, src, line, col, err) {
+    const box = document.createElement('pre');
+    box.style.cssText = 'white-space:pre-wrap;background:#fff3cd;color:#856404;border:1px solid #ffeeba;padding:10px;margin:10px 0;';
+    box.textContent = 'JS Error: ' + msg + '\n' + (src || '') + ':' + (line||'?') + ':' + (col||'?');
+    document.body.prepend(box);
+  };
+
   $(function () {
+    // keep video popup
     $('.video-popup').magnificPopup({ type: 'iframe' });
-    $('.audioplayer').load('audioplayer.html?v=2', function () {
-      console.log('Audio player UI loaded');
+
+    console.log('[Loader] requesting audioplayer.html');
+    $('.audioplayer').load('audioplayer.html?v=3', function (response, status, xhr) {
+      if (status === 'error') {
+        console.error('[Loader] FAILED:', xhr.status, xhr.statusText);
+        const box = document.createElement('pre');
+        box.style.cssText = 'white-space:pre-wrap;background:#f8d7da;color:#721c24;border:1px solid #f5c6cb;padding:10px;margin:10px 0;';
+        box.textContent = 'Failed to load audioplayer.html → ' + xhr.status + ' ' + xhr.statusText;
+        document.querySelector('.audioplayer').prepend(box);
+        return;
+      }
+      console.log('[Loader] audioplayer.html injected OK');
+
+      // Verify the CodePen player bootstrapped
+      const simp = document.querySelector('#simp');
+      const audio = simp && simp.querySelector('#audio');
+      if (!simp || !audio) {
+        console.error('[Loader] Player shell not found after load');
+        const box = document.createElement('pre');
+        box.style.cssText = 'white-space:pre-wrap;background:#fff3cd;color:#856404;border:1px solid #ffeeba;padding:10px;margin:10px 0;';
+        box.textContent = 'Player markup not found inside audioplayer.html. Check for duplicate .simp-playlist wrappers or extra </div> tags.';
+        document.querySelector('.audioplayer').prepend(box);
+      } else {
+        console.log('[Loader] Player shell present');
+      }
     });
   });
 </script>
+
 
 </body>
 
