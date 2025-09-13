@@ -322,8 +322,8 @@ function simp_initAudio() {
 function simp_setAlbumFromSpan(spanEl) {
   simp_cover.innerHTML = spanEl.dataset.cover
     ? '<div style="background:url(' + spanEl.dataset.cover + ') no-repeat;background-size:cover;width:80px;height:80px;"></div>'
-    : '<img src="img/DamrowVO-small-transparent-logo.png" alt="DamrowVO Logo" style="width:80px;height:80px;" />
-';
+   : '<img src="img/DamrowVO-small-transparent-logo.png" alt="DamrowVO Logo" style="width:80px;height:80px;" />';
+
 
   simp_title.textContent = spanEl.textContent;
   simp_artist.textContent = spanEl.dataset.desc || '';
